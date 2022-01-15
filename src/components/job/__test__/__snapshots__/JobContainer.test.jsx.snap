@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobContainer should render jobList 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 css-7m2o70-MuiPaper-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
+          >
+            <h1
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+            >
+              title test
+              <span
+                class="MuiBadge-root css-1c32n2y-MuiBadge-root"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ed4ju2-MuiSvgIcon-root"
+                  data-testid="VerifiedUserIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+                  />
+                </svg>
+                <span
+                  class="MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-badge MuiBadge-standard MuiBadge-anchorOriginTopRight MuiBadge-invisible css-1s52at1-MuiBadge-badge"
+                />
+              </span>
+            </h1>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-d3wcwz-MuiTypography-root"
+            >
+              description
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom css-1s67sn-MuiTypography-root"
+            >
+              skills
+            </p>
+            <span
+              class="MuiTypography-root MuiTypography-body1 css-oxn2yu-MuiTypography-root"
+            >
+              Posted: 14/08/2021
+            </span>
+            <span
+              class="MuiTypography-root MuiTypography-body1 css-oxn2yu-MuiTypography-root"
+            >
+              Expires: 2022-10-10T00:00:00.000Z
+            </span>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-1equabv-MuiGrid-root"
+          >
+            <div
+              class="MuiBox-root css-19t1w01"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-sppt6p-MuiTypography-root"
+              >
+                $100 - $200
+              </p>
+              <button
+                class="MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root css-e2x03b-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                Place Bid
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiBox-root css-6kgy3e"
+  >
+    <button
+      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root css-106nwct-MuiButtonBase-root-MuiButton-root"
+      data-testid="load-more-btn"
+      tabindex="0"
+      type="button"
+    >
+      Load More
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`JobContainer should show loader when request is pending 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+  />
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-gr76iw-MuiPaper-root"
+    data-testid="job-container-loading"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 css-1qpzhgb-MuiGrid-root"
+      >
+        <span
+          class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+          style="height: 30px;"
+        />
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse css-58ftfq-MuiSkeleton-root"
+          style="height: 100px;"
+        />
+        <span
+          class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
+          style="height: 30px;"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-1 css-u78q51-MuiGrid-root"
+      />
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2 css-1o7apob-MuiGrid-root"
+      >
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse css-58ftfq-MuiSkeleton-root"
+          style="height: 160px;"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
