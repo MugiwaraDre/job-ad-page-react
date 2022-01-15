@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAllJobs, fetchJobs } from "../../features/job/jobSlice";
-import { styled } from "@mui/system";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import JobList from "./JobList";
-import JobLoadingSkeleton from "./JobLoadingSkeleton";
+import { styled } from '@mui/system';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import { selectAllJobs, fetchJobs } from '../../features/job/jobSlice';
+import JobList from './JobList';
+import JobLoadingSkeleton from './JobLoadingSkeleton';
 
 const StyledBox = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "row",
-  marginTop: "4em",
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'row',
+  marginTop: '4em',
 });
 
 const StyledButton = styled(Button)({
-  width: "20%",
-  height: "4em",
+  width: '20%',
+  height: '4em',
 });
 
 const JobContainer = () => {
@@ -38,21 +38,21 @@ const JobContainer = () => {
   };
 
   const getView = () => {
-    if (jobStatus === "failed") {
+    if (jobStatus === 'failed') {
       return <div>Something went wrong!</div>;
     }
 
     return (
       <>
         <JobList jobs={jobs} />
-        {jobStatus === "loading" && <JobLoadingSkeleton />}
+        {jobStatus === 'loading' && <JobLoadingSkeleton />}
         {jobs.length !== 0 && (
           <StyledBox>
             <StyledButton
               data-testid='load-more-btn'
               variant='contained'
               color='primary'
-              disabled={jobStatus === "loading"}
+              disabled={jobStatus === 'loading'}
               onClick={fetchMoreJobs}
             >
               Load More
@@ -62,6 +62,7 @@ const JobContainer = () => {
       </>
     );
   };
+
   return <>{getView()}</>;
 };
 

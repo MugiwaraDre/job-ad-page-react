@@ -1,4 +1,4 @@
-name: Job Ad Application
+name: React udemy project
 
 on:
   push:
@@ -16,8 +16,30 @@ jobs:
       - name: Install React package
         run: npm install
 
-      - name: Build
+      - name: build
         run: npm run build
 
-      - name: run testcase
+      - name: Run testcases
         run: npm run test:ci
+
+  deploy:
+    needs: build
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: login to heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+
+      - name: Build react docker image and push to heroku registry
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:push -a job-page web
+
+      - name: Release latest react docker image to server
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release -a job-page web

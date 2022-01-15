@@ -1,6 +1,6 @@
-import React from "react";
-import Grid from "@mui/material/Grid";
-import JobListItem from "./JobListItem";
+import React from 'react';
+import Grid from '@mui/material/Grid';
+import JobListItem from './JobListItem';
 
 const JobList = ({ jobs }) => {
   return (

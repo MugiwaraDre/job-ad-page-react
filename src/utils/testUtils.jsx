@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import jobReducer from "../features/job/jobSlice";
 
-const renderWithRedux = (
+function renderWithRedux(
   ui,
   {
     preloadedState,
@@ -15,13 +15,13 @@ const renderWithRedux = (
     }),
     ...renderOptions
   } = {}
-) => {
-  const Wrapper = ({ children }) => {
+) {
+  function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
-  };
+  }
 
   return render(ui, { wrapper: Wrapper, ...renderOptions });
-};
+}
 
 export * from "@testing-library/react";
 

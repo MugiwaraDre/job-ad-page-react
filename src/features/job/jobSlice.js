@@ -1,11 +1,11 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-import { baseUrl } from "../../config";
+import { baseUrl } from '../../config';
 
 const initialState = {
   jobs: [],
-  status: "idle",
+  status: 'idle',
   error: null,
 };
 
@@ -18,7 +18,7 @@ const action = (data)  => (dispatch) => {
 }
 */
 
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (filter) => {
+export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async (filter) => {
   const { limit, offset } = filter;
   const response = await axios.get(
     `${baseUrl}/api/v1/jobs?limit=${limit}&offset=${offset}`
@@ -28,20 +28,19 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (filter) => {
 });
 
 export const jobSlice = createSlice({
-  name: "jobs",
+  name: 'jobs',
   initialState,
-  reducers: {}, // redux toolkit will create action for you
+  reducers: {},
   extraReducers: {
-    // you need to create your action
     [fetchJobs.pending]: (state, action) => {
-      state.status = "loading";
+      state.status = 'loading';
     },
     [fetchJobs.fulfilled]: (state, action) => {
-      state.status = "succeeded";
+      state.status = 'succeeded';
       state.jobs = state.jobs.concat(action.payload);
     },
     [fetchJobs.rejected]: (state, action) => {
-      state.status = "failed";
+      state.status = 'failed';
       state.error = action.error.message;
     },
   },
