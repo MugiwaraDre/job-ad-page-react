@@ -1,13 +1,8 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from "react";
-
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import JobContainer from "../JobContainer";
 import { renderWithRedux, fireEvent } from "../../../utils/testUtils";
+import JobContainer from "../JobContainer";
 
 const handlers = [
   rest.get("http://localhost:5000/api/v1/jobs", (req, res, ctx) => {
@@ -39,13 +34,13 @@ const handlers = [
         jobs: [
           {
             createdAt: "14/08/2021",
-            description: "description 2",
+            description: "description - 2",
             expiredAt: "2022-10-10T00:00:00.000Z",
-            id: "c8d86ffc-da29-4bf5-9d72-f4bd1b76d89a",
+            id: "b8d86ffc-da29-4bf5-9d72-f4bd1b76d89b",
             maxBudget: "200",
             minBudget: "100",
             skills: "skills",
-            title: "title test 2",
+            title: "title test - 2",
             updatedAt: "14/08/2021",
             userId: "ef3a51a3-642a-4230-9a01-ecd475e72f07",
             version: "ede2bf46-d06a-4d1f-b756-b718de36165b",
@@ -58,6 +53,7 @@ const handlers = [
 ];
 
 const server = setupServer(...handlers);
+
 describe("JobContainer", () => {
   beforeAll(() => server.listen());
 
@@ -73,16 +69,14 @@ describe("JobContainer", () => {
   });
 
   it("should render jobList", async () => {
-    const { getByText, findByText, asFragment } = renderWithRedux(
-      <JobContainer />
-    );
+    const { findByText, asFragment } = renderWithRedux(<JobContainer />);
 
     expect(await findByText("title test")).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should load more jobs when loadMore btn pressed", async () => {
-    const { getByText, findByText, getByTestId, queryByTestId } =
+  it("should load more jobs when click on load more button", async () => {
+    const { findByText, getByText, asFragment, getByTestId, queryByTestId } =
       renderWithRedux(<JobContainer />);
     expect(await findByText("title test")).toBeInTheDocument();
 
@@ -90,7 +84,9 @@ describe("JobContainer", () => {
     expect(getByTestId("load-more-btn")).toBeDisabled();
     expect(getByTestId("job-container-loading")).toBeInTheDocument();
 
-    expect(await findByText("title test 2")).toBeInTheDocument();
+    expect(await findByText("title test - 2")).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
+
     expect(getByTestId("load-more-btn")).not.toBeDisabled();
     expect(queryByTestId("job-container-loading")).not.toBeInTheDocument();
   });
@@ -100,10 +96,11 @@ describe("JobContainer", () => {
       rest.get("http://localhost:5000/api/v1/jobs", (req, res, ctx) => {
         return res.once(
           ctx.status(500),
-          ctx.json({ message: "server is not working" })
+          ctx.json({ mesage: "server is not working!" })
         );
       })
     );
+
     const { findByText } = renderWithRedux(<JobContainer />);
 
     expect(await findByText("Something went wrong!")).toBeInTheDocument();
