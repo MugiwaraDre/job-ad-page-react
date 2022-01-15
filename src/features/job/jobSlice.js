@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { baseUrl } from '../../config';
-
 const initialState = {
   jobs: [],
   status: 'idle',
@@ -21,7 +19,7 @@ const action = (data)  => (dispatch) => {
 export const fetchJobs = createAsyncThunk('jobs/fetchJobs', async (filter) => {
   const { limit, offset } = filter;
   const response = await axios.get(
-    `${baseUrl}/api/v1/jobs?limit=${limit}&offset=${offset}`
+    `https://fastify-course.herokuapp.com/api/v1/jobs?limit=${limit}&offset=${offset}`
   );
 
   return response.data.jobs;
