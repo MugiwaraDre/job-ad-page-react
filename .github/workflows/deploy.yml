@@ -1,0 +1,23 @@
+name: Job Ad Application
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install React package
+        run: npm run install
+
+      - name: Build
+        run: npm run build
+
+      - name: run testcase
+        run: npm run test:ci
