@@ -52,6 +52,10 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "mini-css-extract-plugin": "2.4.5"
+  },
+  "overrides": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
